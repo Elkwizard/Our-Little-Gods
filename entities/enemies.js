@@ -135,6 +135,7 @@ class US extends ElementScript {
 		this.jetpackFuel = 0;
 		this.fuelRechargeTimer = 0;
 		this.flying = false;
+		this.deathWaxed = false;
 
 		this.particles = scene.main.addElement("particles", 0, 0);
 		this.particles.scripts.add(PARTICLE_SPAWNER, {
@@ -395,6 +396,12 @@ class US extends ElementScript {
 					this.waxPoetic();
 			}
 		}
+
+		if (this.player.scripts.ENTITY.dead) {
+			if (!this.deathWaxed)
+				this.waxPoetic();
+			this.deathWaxed = true;
+		} else this.deathWaxed = false;
 
 		this.expression = this.defaultExpression;
 		if (obj.scripts.ENTITY.invincible)
