@@ -90,7 +90,9 @@ const postProcess = (() => {
 		renderer.fill(sky);
 		renderer.image(image).rect(0, 0, width, height);
 
-		renderer.textMode = TextMode.TOP_LEFT;
-		renderer.draw(Color.RED).text(Font.Arial20, intervals.fps, 10, 10);
+		if (isDebug()) {
+			renderer.textMode = TextMode.TOP_LEFT;
+			renderer.draw(Color.RED).text(Font.Arial20, intervals.fps, 10, 10);
+		}
 	};
 })();
