@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://elkwizard.github.io/Hengine/Package/Engine/Manage/HengineLoader.js"></script>
+		<script>
+			HengineLoader.load([
+				new HengineFontResource("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100&display=swap"),
+				new HengineImageResource("images\\world\\world.png"),
+				new HengineImageResource("images\\world\\gate.png"),
+				new HengineImageResource("images\\world\\platform.png"),
+				new HengineImageResource("images\\player\\still.png"),
+				new HengineImageResource("images\\player\\arm.png"),
+				new HengineImageResource("images\\player\\wince.png"),
+				new HengineImageResource("images\\player\\damage.png"),
+				new HengineImageResource("images\\player\\health.png"),
+				new HengineImageResource("images\\player\\dead.png"),
+				new HengineAnimationResource("images\\player\\animations\\walk", 3, 5, true),
+				new HengineImageResource("images\\us\\cracks.png"),
+				new HengineImageResource("images\\us\\flying.png"),
+				new HengineImageResource("images\\us\\armSegment.png"),
+				new HengineImageResource("images\\us\\claw.png"),
+				new HengineAnimationResource("images\\us\\animations\\drive", 2, 10, true),
+				new HengineAnimationResource("images\\us\\animations\\blast", 4, 10, false),
+				new HengineImageResource("images\\us\\head.png"),
+				new HengineImageResource("images\\us\\expressions\\angry.png"),
+				new HengineImageResource("images\\us\\expressions\\happy.png"),
+				new HengineImageResource("images\\us\\expressions\\sad.png"),
+				new HengineImageResource("images\\us\\expressions\\ambivalent.png"),
+				new HengineImageResource("images\\us\\expressions\\nostalgic.png"),
+				new HengineImageResource("images\\us\\expressions\\glitch.png"),
+				new HengineScriptResource("constants.js"),
+				new HengineScriptResource("plants\\plants.js"),
+				new HengineScriptResource("plants\\plantLibrary.js"),
+				new HengineScriptResource("plants\\plantObject.js"),
+				new HengineScriptResource("graphics\\godRays.js"),
+				new HengineScriptResource("graphics\\postProcess.js"),
+				new HengineScriptResource("text\\textGenerator.js"),
+				new HengineScriptResource("text\\textBoxes.js"),
+				new HengineScriptResource("text\\story.js"),
+				new HengineScriptResource("entities\\entity.js"),
+				new HengineScriptResource("entities\\attack.js"),
+				new HengineScriptResource("entities\\player.js"),
+				new HengineScriptResource("entities\\enemies.js"),
+				new HengineScriptResource("world.js"),
+				new HengineScriptResource("index.js")
+			]);
+		</script>
+	</head>
+
+	<body></body>
+</html>

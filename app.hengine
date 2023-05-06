@@ -1,0 +1,89 @@
+font "https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100&display=swap"
+
+folder "images" {
+	folder "world" {
+		image "world.png"
+		image "gate.png"
+		image "platform.png"
+	}
+
+	folder "player" {
+		image "still.png"
+		image "arm.png"
+		image "wince.png"
+		image "damage.png"
+		image "health.png"
+		image "dead.png"
+
+		folder "animations" {
+			animation "walk" {
+				frames 3
+				delay 5
+				loops true
+			}
+		}
+	}
+	
+	folder "us" {
+		image "cracks.png"
+
+		image "flying.png"
+
+		image "armSegment.png"
+		image "claw.png"
+
+		folder "animations" {
+			animation "drive" {
+				frames 2
+				delay 10
+				loops true
+			}
+		
+			animation "blast" {
+				frames 4
+				delay 10
+				loops false
+			}
+		}
+
+		image "head.png"
+
+		folder "expressions" {
+			image "angry.png"
+			image "happy.png"
+			image "sad.png"
+			image "ambivalent.png"
+			image "nostalgic.png"
+			image "glitch.png"
+		}
+	}
+}
+
+script "constants.js"
+
+folder "plants" {
+	script "plants.js"
+	script "plantLibrary.js"
+	script "plantObject.js"
+}
+
+folder "graphics" {
+	script "godRays.js"
+	script "postProcess.js"
+}
+
+folder "text" {
+	script "textGenerator.js"
+	script "textBoxes.js"
+	script "story.js"
+}
+
+folder "entities" {
+	script "entity.js"
+	script "attack.js"
+	script "player.js"
+	script "enemies.js"
+}
+
+script "world.js"
+script "index.js"

@@ -1,0 +1,1 @@
+{ "version": "2.0.0", "tasks": [ { "label": "Hengine Compile",	"type": "shell", "command": "node", "args": ["G:/My Drive/Desktop/Hengine/Tools/HengineCompiler.js", "${fileDirname}/app.hengine", "https://elkwizard.github.io/Hengine"], "problemMatcher": [], "group": { "kind": "build", "isDefault": true } } ] }
