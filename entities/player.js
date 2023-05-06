@@ -67,6 +67,27 @@ class PLAYER extends ElementScript {
 			}
 		});
 
+		this.skidParticles = scene.main.addElement("skidParticles", 0, 0);
+		this.skidParticles.scripts.add(PARTICLE_SPAWNER, {
+			radius: 5,
+			delay: 1,
+			falls: false,
+			slows: false,
+			lifeSpan: 10,
+			init(particle) {
+				particle.data.radius = Random.range(5, 15);
+				particle.timer -= Random.range(0.1, 0.2);
+				particle.data.color = Color.grayScale(Random.range(0.8, 1));
+			},
+			update(particle) {
+				
+			},
+			draw(renderer, particle) {
+				const r = particle.data.radius * (1 - particle.timer);
+				renderer.draw(particle.data.color).circle(particle.position, r);
+			}
+		});
+
 		this.layer = obj.layer;
 		this.respawn();
 	}
@@ -118,8 +139,14 @@ class PLAYER extends ElementScript {
 		if (rb.colliding.bottom && keyboard.justPressed(obj.controls.up))
 			rb.velocity.y = -JUMP_VELOCITY;
 
-		if (rb.colliding[this.direction === -1 ? "left" : "right"])
-			this.stoppedTimer = 0;
+		const collidingDirection = rb.colliding[this.direction === -1 ? "left" : "right"];
+
+		if (
+			collidingDirection &&
+			collidingDirection
+				.filter(({ element }) => !element.scripts.PHYSICS.isTrigger)
+				.length
+		) this.stoppedTimer = 0;
 		else this.stoppedTimer++;
 
 		if (left != right) {
@@ -131,6 +158,11 @@ class PLAYER extends ElementScript {
 			if (this.stoppedTimer > 2)
 				rb.velocity.x -= this.direction * HORIZONTAL_PLAYER_SPEED;
 			this.justMoving = false;
+		} else if (Math.abs(rb.velocity.x) > 3 && rb.colliding.bottom) {
+			const { middle, max, width } = obj.getBoundingBox();
+			this.skidParticles.scripts.PARTICLE_SPAWNER.explode(1, new Vector2(
+				middle.x + Math.sign(rb.velocity.x) * width / 2, max.y
+			));
 		}
 		
 		if (keyboard.justPressed(obj.controls.interact1) && this.attackCooldown <= 0) {
@@ -141,7 +173,7 @@ class PLAYER extends ElementScript {
 				duration: this.attackingTimer,
 				force: 20000
 			});
-			this.attackCooldown = 1;
+			this.attackCooldown = 12;
 		}
 
 		this.attackCooldown--;
