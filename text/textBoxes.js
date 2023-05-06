@@ -49,8 +49,8 @@ class MessageManager {
 		this.transition += 0.12 * (this.target - this.transition);
 
 		if (this.transition < 0.5 && this.target === 0) {
-			this.target = 1;
 			this.messages.shift();
+			this.target = 1;
 		}
 		
 		renderer.draw(Color.BLACK).rect(rect);

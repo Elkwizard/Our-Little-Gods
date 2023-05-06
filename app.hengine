@@ -53,7 +53,7 @@ folder "images" {
 			image "happy.png"
 			image "sad.png"
 			image "ambivalent.png"
-			image "nostalgic.png"
+			image "concerned.png"
 			image "glitch.png"
 		}
 	}

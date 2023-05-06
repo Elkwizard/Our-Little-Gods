@@ -118,7 +118,7 @@ class US extends ElementScript {
 		this.headOffset = new Vector2(0, 0);
 		this.expressions = {};
 		for (const expr of [
-			"angry", "happy", "sad", "ambivalent", "nostalgic", "glitch"
+			"angry", "happy", "sad", "ambivalent", "concerned", "glitch"
 		]) this.expressions[expr] = loadResource(`${expr}.png`);
 		this.expression = null;
 		this.defaultExpression = "ambivalent";
@@ -404,7 +404,7 @@ class US extends ElementScript {
 		if (obj.scripts.ENTITY.dead)
 			this.expression = "sad";
 		if (this.player.scripts.ENTITY.dead)
-			this.expression = "nostalgic";
+			this.expression = "concerned";
 
 
 		this.headOffset.add(this.headTargetOffset.minus(this.headOffset).times(0.2));
