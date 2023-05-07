@@ -360,7 +360,7 @@ class US extends ElementScript {
 
 			if (this.flying && this.jetpackFuel) {
 				this.jetpackFuel--;
-				rb.velocity.y -= 1;
+				rb.velocity.y -= 0.7;
 				if (!this.jetpackFuel) {
 					this.fuelRechargeTimer = 40;
 					this.flying = false;
@@ -380,7 +380,7 @@ class US extends ElementScript {
 					this.direction = Math.sign(rb.velocity.x);
 				}; break;
 				case 3: {
-					rb.velocity.x = dir.x * Math.min(dist * 0.1, 7);
+					rb.velocity.x = dir.x * Math.min(dist * 0.06, 7);
 					this.direction = Math.sign(rb.velocity.x);
 
 					if (this.jetpackFuel)

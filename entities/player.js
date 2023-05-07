@@ -74,6 +74,7 @@ class PLAYER extends ElementScript {
 			falls: false,
 			slows: false,
 			lifeSpan: 10,
+			active: false,
 			init(particle) {
 				particle.data.radius = Random.range(5, 15);
 				particle.timer -= Random.range(0.1, 0.2);
