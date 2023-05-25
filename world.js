@@ -111,7 +111,7 @@ class WORLD extends ElementScript {
 				let x = Random.range(0, width);
 				if (Random.bool()) x += width * 2;
 				const yOffset = Random.range(-1, 10);
-				const plant = PLANT_OBJECT.create(x, height * 0.8 + yOffset, player, create());
+				const plant = PLANT_OBJECT.create(x, height * 0.8 + yOffset, [player], create());
 				plant.layer = Random.range(-5, 5);
 				this.plants.push(plant);
 			}
